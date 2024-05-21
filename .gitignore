@@ -1,0 +1,54 @@
+
+# Compiled output
+/dist
+/tmp
+*/target/
+/out-tsc
+/bazel-out
+/target
+bob-service.iml
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.vscode/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Camunda Repo
+camunda-h2-database.mv.db
+camunda-h2-database.trace.db
+camunda/.idea
+camunda/target
+
+# Planning Tool Repo
+planning-tool-app/.vscode
