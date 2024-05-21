@@ -22,10 +22,10 @@ public class Person {
   private Integer id;
   private String name;
 
-//  @Convert(converter = AttributeEncryptor.class)
+  @Convert(converter = AttributeEncryptor.class)
   private String username;
 
-//  @Convert(converter = AttributeEncryptor.class)
+  @Convert(converter = AttributeEncryptor.class)
   private String password;
 
 }

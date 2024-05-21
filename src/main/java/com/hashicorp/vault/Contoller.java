@@ -22,37 +22,21 @@ public class Contoller {
   @Autowired
   JdbcTemplate jdbcTemplate;
 
-  @Autowired
-  VaultTransit vaultTransit;
-
 
   @PostMapping
   Collection<Person> put(@RequestBody Person person) {
-    Person p = Person.builder()
-      .id(person.getId())
-        .name(person.getName())
-        .username(vaultTransit.encrypt(person.getUsername()))
-        .password(vaultTransit.encrypt(person.getPassword()))
-      .build();
-    personRepo.save(p);
+    personRepo.save(person);
     return personRepo.findAll();
   }
 
   @GetMapping("/{id}")
-  public Person getById(@PathVariable Integer id) {
-    Person person = personRepo.findById(id).get();
-    Person p = Person.builder()
-      .id(person.getId())
-      .name(person.getName())
-      .username(vaultTransit.decrypt(person.getUsername()))
-      .password(vaultTransit.decrypt(person.getPassword()))
-      .build();
-    return p;
+  Person get(@PathVariable Integer id) {
+    return personRepo.findById(id).orElseThrow();
   }
 
 
   @GetMapping
-  List<Map<String, Object>>get() {
+  List<Map<String, Object>> get() {
     return jdbcTemplate.queryForList("SELECT * FROM person");
   }
 }
